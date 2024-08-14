@@ -5,12 +5,13 @@ branding:
   icon: check-square
   color: green
 inputs:
-  github-token:
-    description: Github token
-    required: true
   report-file:
     description: The location of the report.txt file
     required: true
+  coverage-threshold:
+    description: Code coverage threshold 0..100
+    required: false
+    default: "0"
 runs:
-  using: node12
+  using: node20
   main: src/main.js
