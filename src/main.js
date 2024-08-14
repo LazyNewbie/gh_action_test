@@ -1,21 +1,27 @@
-const CODE_COVERAGE_THRESHOLD = 0;
-const reportFile = "repo/coverage/coverageSummary.txt";
+const core = require('@actions/core');
+const github = require('@actions/github');
+
+
+const reportFile = core.getInput('who-to-greet'); // repo/coverage/coverageSummary.txt
+
+// const CODE_COVERAGE_THRESHOLD = 0;
+
 
 require('fs').readFile(reportFile, (err, buffer) => {
     if (err) throw new Error(err);
     let summary = parseSummary(buffer.toString());
-    if (CODE_COVERAGE_THRESHOLD > summary.Total.percent) {
-        throw new Error(thresholdErrorMessage(summary));
-    }
+    // if (CODE_COVERAGE_THRESHOLD > summary.Total.percent) {
+    //     throw new Error(thresholdErrorMessage(summary));
+    // }
     writeCoverageReport(summary);
 })
 
-function thresholdErrorMessage() {
-    msg = `** Code level coverage is too low (${summary.Total.percent}%, minimum required ${CODE_COVERAGE_THRESHOLD} %) **`;
-    let strLen = msg.length;
-    let border = "\n" + "".padStart(strLen, "*") + "\n";
-    return border + msg + border;
-}
+// function thresholdErrorMessage() {
+//     msg = `** Code level coverage is too low (${summary.Total.percent}%, minimum required ${CODE_COVERAGE_THRESHOLD} %) **`;
+//     let strLen = msg.length;
+//     let border = "\n" + "".padStart(strLen, "*") + "\n";
+//     return border + msg + border;
+// }
 
 function parseSummary(summary) {
     let result = {};

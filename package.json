@@ -1,0 +1,24 @@
+{
+  "name": "github_actions_repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LazyNewbie/gh_action_test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LazyNewbie/gh_action_test/issues"
+  },
+  "homepage": "https://github.com/LazyNewbie/gh_action_test#readme"
+}
