@@ -1,0 +1,16 @@
+name: Test action
+description: test
+author: me
+branding:
+  icon: check-square
+  color: green
+inputs:
+  github-token:
+    description: Github token
+    required: true
+  report-file:
+    description: The location of the report.txt file
+    required: true
+runs:
+  using: node12
+  main: src/main.js
